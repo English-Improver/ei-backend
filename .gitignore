@@ -1,0 +1,11 @@
+# idea配置文件
+.idea/
+
+# target编译目录
+ /common-models/target
+
+ /service/target
+
+service/src/main/resources/file/00.exe
+.idea/workspace.xml
+

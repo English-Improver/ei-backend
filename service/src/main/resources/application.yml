@@ -1,0 +1,111 @@
+# app
+app:
+  jwtSecret: "english_improver_jasdf-15891ja<ANKNNNF01234123` zvdfqfa019723490183249rfjhc;阿VNDSv阿凡达舒服师大范德萨范德萨地方企鹅让发丝地方"
+ # jwtExpirationMs: 86400000
+
+
+# 配置端口号
+server:
+  port: 8081
+
+# 配置数据源
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost:3306/main"
+    username: "root"
+    password: "root"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  devtools:
+    restart:
+      enabled: true
+  # 配置open AI key
+  ai:
+    openai:
+      api-key: your-token
+
+  # 配置mail
+  mail:
+    host: smtp.qq.com
+    username: your email
+#    password: mefztbnauizlebbi
+    properties:
+      mail:
+        smtp:
+          auth: true
+    port: 587
+    protocol: smtp
+    password: your-password
+  # 配置redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+  kafka:
+    bootstrap-servers: localhost
+    producer:
+      # 发生错误后的重试次数
+      retries: 3
+      # 批量发送的消息数量
+      batch-size: 16384
+      # 32MB的批处理缓冲区
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: 1
+    consumer:
+      # 消费者群组ID
+      group-id: my-group
+      # 自动提交的时间间隔
+      auto-commit-interval: 1000
+      # 是否自动提交偏移量
+      enable-auto-commit: true
+      # 当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      # 消费者并发数量
+      concurrency: 3
+      # 批量消费每次最多消费多少条消息
+      batch-size: 100
+      # 消费确认机制
+      ack-mode: MANUAL_IMMEDIATE
+# 配置mybatis
+#mybatis:
+#  # 配置mapper.xml文件的位置
+#    mapper-locations: classpath:mapper/user/*.xml
+#  # 配置pojo的别名
+#    type-aliases-package: com.ei.pojo.DO.*
+
+# 配置日志
+logging:
+  level:
+    root: info
+
+# 配置登录控制
+login:
+  auth: false
+
+# xxl-job
+xxl:
+  job:
+    admin:
+      addresses: http://localhost:8080/xxl-job-admin
+    accessToken: default_token
+    executor:
+      appname: english-improver-job
+      ip:         # xxl-job executor server-info
+      address:
+      port: 9999
+      logpath: ~/logs/xxl-job/jobhandler
+      logretentiondays: 30
+
+# dingding
+dingding:
+  clientId: xxx
+  clientSecret:
+  accessToken: yourtoken
+
+
+
