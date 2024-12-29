@@ -1,6 +1,8 @@
 package pojo.dto.word;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.util.List;
 
@@ -9,15 +11,39 @@ import java.util.List;
  * 2024/5/4
  */
 public class SaveWordInSentenceDto {
+    private Integer sentenceId;
     @NotBlank
     private String word;
     @NotBlank
     private String pronunciation;
-    @NotBlank
+
     private String exampleSentence;
 
     private String meaningInSentence;
-    @NotBlank
+
+    /**
+     * 是否为单词
+     * 0 不是
+     * 1 是
+     */
+    private Integer isWord;
+
+    public Integer getSentenceId() {
+        return sentenceId;
+    }
+
+    public void setSentenceId(Integer sentenceId) {
+        this.sentenceId = sentenceId;
+    }
+
+    public Integer getIsWord() {
+        return isWord;
+    }
+
+    public void setIsWord(Integer isWord) {
+        this.isWord = isWord;
+    }
+
     private List<WordMeaningDTO> meanings;
 
     public String getWord() {
@@ -36,11 +62,11 @@ public class SaveWordInSentenceDto {
         this.pronunciation = pronunciation;
     }
 
-    public @NotBlank String getExampleSentence() {
+    public String getExampleSentence() {
         return exampleSentence;
     }
 
-    public void setExampleSentence(@NotBlank String exampleSentence) {
+    public void setExampleSentence(String exampleSentence) {
         this.exampleSentence = exampleSentence;
     }
 
@@ -52,11 +78,11 @@ public class SaveWordInSentenceDto {
         this.meaningInSentence = meaningInSentence;
     }
 
-    public @NotBlank List<WordMeaningDTO> getMeanings() {
+    public List<WordMeaningDTO> getMeanings() {
         return meanings;
     }
 
-    public void setMeanings(@NotBlank List<WordMeaningDTO> meanings) {
+    public void setMeanings(List<WordMeaningDTO> meanings) {
         this.meanings = meanings;
     }
 

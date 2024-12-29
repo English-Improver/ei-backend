@@ -5,25 +5,39 @@ import pojo.model.BasePOJO;
 
 /**
  * @author yitiansong
- * 单词表
+ * 单词表短语表,如果是单词，意思存储在ei_word_meaning表中，如果是短语，意思存储在ei_word表中
  */
 @TableName("ei_word")
 public class EIWordDO extends BasePOJO {
     private String word;
     private String pronunciation;
-    private Integer posId;
     private Integer userId;
-    private String property;
+    /**
+     * 是否为单词
+     * 0 不是
+     * 1 是
+     */
+    private Integer isWord;
 
-    @Override
-    public String toString() {
-        return "EIWordDO{" +
-                "word='" + word + '\'' +
-                ", pronunciation='" + pronunciation + '\'' +
-                ", posId=" + posId +
-                ", userId=" + userId +
-                ", property='" + property + '\'' +
-                '}';
+    /**
+     * 短语的意思
+     */
+    private String meaning;
+
+    public Integer getIsWord() {
+        return isWord;
+    }
+
+    public void setIsWord(Integer isWord) {
+        this.isWord = isWord;
+    }
+
+    public String getMeaning() {
+        return meaning;
+    }
+
+    public void setMeaning(String meaning) {
+        this.meaning = meaning;
     }
 
     public String getWord() {
@@ -42,13 +56,6 @@ public class EIWordDO extends BasePOJO {
         this.pronunciation = pronunciation;
     }
 
-    public Integer getPosId() {
-        return posId;
-    }
-
-    public void setPosId(Integer posId) {
-        this.posId = posId;
-    }
 
     public Integer getUserId() {
         return userId;
@@ -58,11 +65,14 @@ public class EIWordDO extends BasePOJO {
         this.userId = userId;
     }
 
-    public String getProperty() {
-        return property;
-    }
-
-    public void setProperty(String property) {
-        this.property = property;
+    @Override
+    public String toString() {
+        return "EIWordDO{" +
+                "word='" + word + '\'' +
+                ", pronunciation='" + pronunciation + '\'' +
+                ", userId=" + userId +
+                ", isWord=" + isWord +
+                ", meaning='" + meaning + '\'' +
+                '}';
     }
 }

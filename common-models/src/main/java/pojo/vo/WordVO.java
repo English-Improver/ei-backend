@@ -13,6 +13,15 @@ public class WordVO {
     private String pronunciation;
     private String meaningInSentence;
     private List<WordMeaningDTO> meanings;
+    private Integer isWord;
+
+    public Integer getIsWord() {
+        return isWord;
+    }
+
+    public void setIsWord(Integer isWord) {
+        this.isWord = isWord;
+    }
 
     @Override
     public String toString() {

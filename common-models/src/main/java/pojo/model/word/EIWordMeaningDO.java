@@ -11,16 +11,16 @@ import pojo.model.BasePOJO;
 public class EIWordMeaningDO extends BasePOJO {
     private Integer wordId;
     // 外键：EIposDo id
-    private Integer propertyId;
+//    private Integer propertyId;
+    private String property;
     private String meaning;
 
-    @Override
-    public String toString() {
-        return "EIWordMeaningDO{" +
-                "wordId=" + wordId +
-                ", propertyId=" + propertyId +
-                ", meaning='" + meaning + '\'' +
-                '}';
+    public String getProperty() {
+        return property;
+    }
+
+    public void setProperty(String property) {
+        this.property = property;
     }
 
     public Integer getWordId() {
@@ -29,14 +29,6 @@ public class EIWordMeaningDO extends BasePOJO {
 
     public void setWordId(Integer wordId) {
         this.wordId = wordId;
-    }
-
-    public Integer getPropertyId() {
-        return propertyId;
-    }
-
-    public void setPropertyId(Integer propertyId) {
-        this.propertyId = propertyId;
     }
 
     public String getMeaning() {

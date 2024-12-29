@@ -1,6 +1,8 @@
 package pojo.dto.word;
 
 
+import jakarta.validation.constraints.NotBlank;
+
 /**
  * @author yitiansong
  * 单词意思DTO

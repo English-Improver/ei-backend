@@ -3,6 +3,7 @@ package com.ei.controller;
 import com.ei.service.sentence.NlpProcessService;
 import com.ei.service.user.EIUserService;
 import com.ei.service.word.WordService;
+import com.ei.util.Result;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,17 +17,25 @@ import pojo.vo.WordVO;
  */
 @RestController
 @RequestMapping("/word")
-public class WordController{
+public class WordController {
     private final WordService wordService;
 
     private final NlpProcessService nlpProcessService;
 
     private final EIUserService userService;
-    public WordController(WordService wordService,  NlpProcessService nlpProcessService, EIUserService userService) {
+
+    public WordController(WordService wordService, NlpProcessService nlpProcessService, EIUserService userService) {
         this.wordService = wordService;
         this.nlpProcessService = nlpProcessService;
         this.userService = userService;
     }
+
+    /**
+     * 单纯的保存单词
+     *
+     * @param wordVO
+     * @return
+     */
     @PostMapping
     public ResponseEntity<WordDto> saveWord(@RequestBody WordVO wordVO) {
 
@@ -34,4 +43,8 @@ public class WordController{
 
     }
 
+    @PostMapping("/saveWordInSentence")
+    public ResponseEntity<Result> saveWordInSentence() {
+        return null;
+    }
 }

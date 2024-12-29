@@ -1,6 +1,8 @@
 package com.ei.service.sentence;
 
 import customException.PosColorNotFoundException;
+import pojo.dto.sentence.SaveSentenceDto;
+import pojo.dto.word.SaveWordInSentenceDto;
 import pojo.dto.word.WordDto;
 import pojo.model.sentence.EIPosDO;
 import pojo.model.sentence.EISentenceDO;
@@ -44,10 +46,17 @@ public interface SentenceService {
     WordVO explainWordInSentence(WordDto wordDto);
     /**
      *  根据句子和解释进行保存, 返回记录
-     * @param sentence 句子
-     * @param sentenceExplain 句子解释
+     * @param saveSentenceDto 需要保存的句子信息
      * @return EISentenceDO
      */
-    EISentenceDO saveSentence(String sentence, String sentenceExplain);
+    EISentenceDO saveSentence(SaveSentenceDto saveSentenceDto);
+
+    /**
+     * 保存句子中的单词
+     * @param word 需要保存的单词
+     * @return true if save succesed
+     */
+    boolean saveWordInSentence(Integer userId, Integer sentenceId, SaveWordInSentenceDto word);
+
 
 }
