@@ -5,6 +5,9 @@
  /common-models/target
 
  /service/target
+# 忽略每个模块的target目录
+/AI/target
+/autotask/target
 
 service/src/main/resources/file/00.exe
 .idea/workspace.xml
